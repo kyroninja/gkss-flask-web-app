@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Task Detail</h1>
+
+<div class="card">
+    <h2>{{ task.title }}</h2>
+    <p><strong>Status:</strong> {{ "Done ✓" if task.done else "In progress" }}</p>
+    <p><strong>Description:</strong><br>
+    {{ task.description if task.description else "No description provided." }}</p>
+
+    <a href="/complete/{{ task.id }}">Mark complete</a> |
+    <a href="/">Back to tasks</a>
+</div>
+{% endblock %}
