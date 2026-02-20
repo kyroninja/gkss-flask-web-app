@@ -14,15 +14,37 @@ A simple task tracking web app built with Flask. Made this to practice Flask rou
 You'll need Python 3.8+ installed.
 
 1. Clone the repo
-2. Install dependencies:
+
+2. Create and activate a virtual environment:
+
+   **Mac/Linux:**
+   ```
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+   **Windows:**
+   ```
+   python -m venv venv
+   venv\Scripts\activate
+   ```
+
+3. Install dependencies:
    ```
    pip install -r requirements.txt
    ```
-3. Run the app:
+
+4. Run the app:
    ```
    python app.py
    ```
-4. Open your browser and go to `http://localhost:5000`
+
+5. Open your browser and go to `http://localhost:5000`
+
+When you're done, you can deactivate the virtual environment with:
+```
+deactivate
+```
 
 ## Known issues
 
