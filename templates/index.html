@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>My Taskboard</h1>
+
+<div class="card">
+    <h3>Add a new task</h3>
+    <form action="/add" method="POST">
+        <input type="text" name="title" placeholder="Task title" style="width:100%; padding:8px; margin-bottom:8px; box-sizing:border-box;"><br>
+        <textarea name="description" placeholder="Description (optional)" rows="3" style="width:100%; padding:8px; box-sizing:border-box;"></textarea><br><br>
+        <button type="submit">Add Task</button>
+    </form>
+</div>
+
+<h2>Tasks ({{ tasks|length }})</h2>
+
+{% if tasks %}
+    {% for task in tasks %}
+    <div class="card" style="opacity: {{ '0.5' if task.done else '1' }}">
+        <strong><a href="/task/{{ task.id }}">{{ task.title }}</a></strong>
+        {% if task.done %}
+            <span style="color: green;"> ✓ Done</span>
+        {% endif %}
+        <p style="color:#666; margin:5px 0;">{{ task.description }}</p>
+        <a href="/complete/{{ task.id }}">Mark complete</a> |
+        <a href="/delete/{{ task.id }}" onclick="return confirm('Delete this task?')">Delete</a>
+    </div>
+    {% endfor %}
+{% else %}
+    <p style="color: #888;">No tasks yet. Add one above!</p>
+{% endif %}
+{% endblock %}
